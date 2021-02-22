@@ -5,11 +5,11 @@
 
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className) {
-  array = [];
+  result = [];
   if (document.body.classList) {
     for (var j = 0; j < document.body.classList.length; j++) {
       if (document.body.classList.item(j) === className) {
-        array.push(document.body);
+        result.push(document.body);
       }
     }
   }
@@ -20,7 +20,7 @@ var getElementsByClassName = function(className) {
       if (currentNode.classList) {
         for (var j = 0; j < currentNode.classList.length; j++) {
           if (currentNode.classList.item(j) === className) {
-            array.push(currentNode);
+            result.push(currentNode);
           }
         }
         if (currentNode.childNodes.length) {
@@ -30,7 +30,7 @@ var getElementsByClassName = function(className) {
     }
   };
   traverseNodes(document.body.childNodes);
-  return array;
+  return result;
 };
 
 
